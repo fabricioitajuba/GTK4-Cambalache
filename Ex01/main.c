@@ -1,3 +1,12 @@
+/****************************************************************************************
+ * Ex01 - Hello world!
+ * 
+ * Autor: Eng. Fabrício Ribeiro
+ * para compilar: make
+ * para limpar a compilação: make clean
+ * para executar: ./Ex01
+ * 
+*****************************************************************************************/
 #include <gtk/gtk.h>
 
 // Estrutura para passar múltiplos objetos para a função callback (se necessário)
