@@ -1,0 +1,36 @@
+- Abra o Prompt de Comando ou PowerShell como Administrador
+
+>wsl --install
+
+Reinicie o computador
+
+- no WSL
+sudo apt update && sudo apt upgrade -y
+sudo apt install flatpak -y
+flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub ar.xjuan.Cambalache
+sudo apt install build-essential pkg-config libgtk-4-dev -y
+
+Executar no Windows WLS:
+$ flatpak run ar.xjuan.Cambalache
+
+Se der erro DRM:
+
+sudo usermod -aG video $USER
+sudo usermod -aG render $USER
+flatpak override --user --device=dri ar.xjuan.Cambalache
+
+- entre no cmd:
+>wsl --shutdown
+
+$ WEBKIT_DISABLE_COMPOSITING_MODE=1 flatpak run ar.xjuan.Cambalache
+$ WLR_RENDERER=pixman WEBKIT_DISABLE_COMPOSITING_MODE=1 flatpak run ar.xjuan.Cambalache
+
+# 2. Navegue até a pasta onde salvou o main.c e o interface.ui
+# cd /caminho/da/sua/pasta
+
+# 3. Compile o programa usando o GCC com as flags do GTK4
+gcc main.c -o meu_app `pkg-config --cflags --libs gtk4`
+
+# 4. Execute o binário gerado
+./meu_app
